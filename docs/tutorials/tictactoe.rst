@@ -70,7 +70,7 @@ Let's play two steps to have an intuitive understanding of the environment.
 
     >>> import numpy as np
     >>> action = 0                                  # action is either an integer, or an np.ndarray with one element
-    >>> obs, reward, done, info = env.step(action)  # the env.step follows the api of Gymnasium
+    >>> obs, reward, done, is_truncated, info = env.step(action)  # the env.step follows the api of Gymnasium
     >>> print(obs)                                  # notice the change in the observation
     {'agent_id': 'player_2', 'obs': array([[[0, 1],
             [0, 0],
@@ -96,7 +96,7 @@ One worth-noting case is that the game is over when there is only one empty posi
 ::
 
     >>> # omitted actions: 3, 1, 4
-    >>> obs, reward, done, info = env.step(2)  # player_1 wins
+    >>> obs, reward, done, is_truncated, info = env.step(2)  # player_1 wins
     >>> print((reward, done))
     ([1, -1], True)
     >>> env.render()
